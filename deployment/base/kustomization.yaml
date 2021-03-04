@@ -1,0 +1,3 @@
+resources:
+- bulk-pack-transformer-deployment.yaml
+- treetracker-dev-db-sealed-secret.yaml
