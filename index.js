@@ -83,7 +83,7 @@ app.post('/tree', async (req, res) => {
         const capture = { 
           ...tree,
           id: tree.uuid,
-          planter_id: tree.user_id
+          planter_id: user.id
         };
         console.log(config.fieldDataURL);
         var options = {
