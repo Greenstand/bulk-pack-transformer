@@ -82,10 +82,8 @@ app.post('/tree', async (req, res) => {
         const tree = req.body
         const capture = { 
           ...tree,
-          id: tree.uuid,
           planter_id: user.id
         };
-        console.log(config.fieldDataURL);
         var options = {
           method: 'POST',
           uri: config.fieldDataURL + "captures",
@@ -93,7 +91,6 @@ app.post('/tree', async (req, res) => {
           json: true // Automatically stringifies the body to JSON
         };
         const fieldCapture = await rp(options);
-        console.log("created field data tree capture " + fieldCapture.id);
         res.status(201).json({ fieldCapture });
       } else {
         const tree = await data.createTree( user.id, req.body.device_identifier, req.body);
