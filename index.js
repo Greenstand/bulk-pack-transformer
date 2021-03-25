@@ -9,20 +9,19 @@ const Data = require('./src/data');
 const config = require('./config/config');
 
 const pool = new Pool({
-  connectionString: config.connectionString
-});
+  connectionString: config.connectionString,
+})
 
 pool.on('connect', (client) => {
   console.log(`connected ${client}`);
 })
 
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
 
-const data = new Data(pool);
+const data = new Data(pool)
 
-const app = express();
-const port = process.env.NODE_PORT || 3005;
-
+const app = express()
+const port = process.env.NODE_PORT || 3005
 
 app.use(bodyParser.urlencoded({ extended: false })); // parse application/x-www-form-urlencoded
 app.use(bodyParser.json()); // parse application/json
@@ -35,8 +34,7 @@ app.use((err, req, res, next) => {
   next();
 });
 
-
-app.set('view engine','html');
+app.set('view engine', 'html')
 
 app.post('/planter', async (req, res) => {
   const planter = await data.findOrCreateUser(req.body.planter_identifier, req.body.first_name, req.body.last_name, req.body.organization);
@@ -83,24 +81,22 @@ app.post('/tree', async (req, res) => {
         console.log(`created tree ${tree.uuid}`);
         res.status(201).json({ tree });
     }
-});
+  }
+})
 
 app.put('/device', async (req, res) => {
-    const device = await data.upsertDevice(req.body);
-    res.status(200).json({ device });
-
-});
-
+  const device = await data.upsertDevice(req.body)
+  res.status(200).json({ device })
+})
 
 app.use((err, req, res, next) => {
-  res.status(500);
-  res.json({ error: err.message });
-  next(err);
-});
-
+  res.status(500)
+  res.json({ error: err.message })
+  next(err)
+})
 
 app.listen(port,()=>{
     console.log(`listening on port ${port}`);
 });
 
-module.exports = app;
+module.exports = app
