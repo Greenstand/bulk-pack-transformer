@@ -86,7 +86,7 @@ app.post('/tree', async (req, res) => {
         };
         var options = {
           method: 'POST',
-          uri: config.fieldDataURL + "captures",
+          uri: config.fieldDataURL + "raw-captures",
           body: capture,
           json: true // Automatically stringifies the body to JSON
         };
