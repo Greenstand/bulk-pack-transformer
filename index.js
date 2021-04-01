@@ -13,7 +13,7 @@ const pool = new Pool({
 });
 
 pool.on('connect', (client) => {
-  console.log("connected", client);
+  console.log(`connected ${client}`);
 })
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
