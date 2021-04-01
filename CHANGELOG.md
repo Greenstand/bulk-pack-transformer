@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.0.0...v1.0.1) (2021-04-01)
+
+
+### Bug Fixes
+
+* mark the project as private ([a19f017](https://github.com/Greenstand/bulk-pack-transformer/commit/a19f017e8a084a0a8642d86db42e29a506a61fb3))
+
 # 1.0.0 (2021-04-01)
 
 
