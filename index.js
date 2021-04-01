@@ -1,24 +1,19 @@
 require('dotenv').config();
 const express = require('express');
 require('express-async-errors');
-const Sentry = require('@sentry/node');
-const bearerToken = require('express-bearer-token');
 const bodyParser = require('body-parser');
-const http = require('http');
 const rp = require('request-promise-native');
-const pg = require('pg');
-const { Pool, Client } = require('pg');
-const path = require('path');
-const jwt = require('jsonwebtoken');
+const { Pool } = require('pg');
 const Data = require('./src/data');
 
 const config = require('./config/config');
+
 const pool = new Pool({
   connectionString: config.connectionString
 });
 
 pool.on('connect', (client) => {
-  //console.log("connected", client);
+  console.log(`connected ${client}`);
 })
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
@@ -29,46 +24,38 @@ const app = express();
 const port = process.env.NODE_PORT || 3005;
 
 
-/*
-Sentry.init({ dsn: config.sentry_dsn });
-
-app.use(Sentry.Handlers.requestHandler());
-*/
 app.use(bodyParser.urlencoded({ extended: false })); // parse application/x-www-form-urlencoded
 app.use(bodyParser.json()); // parse application/json
-/*
-app.use(Sentry.Handlers.errorHandler());
 
 // Optional fallthrough error handler
-app.use(function onError(err, req, res, next) {
+app.use((err, req, res) => {
   // The error id is attached to `res.sentry` to be returned
   // and optionally displayed to the user for support.
   res.statusCode = 500;
-  res.end(res.sentry + '\n');
+  res.end(`${res.sentry}\n`);
 });
-*/
 
 
 app.set('view engine','html');
 
 app.post('/planter', async (req, res) => {
   const planter = await data.findOrCreateUser(req.body.planter_identifier, req.body.first_name, req.body.last_name, req.body.organization);
-  var body = req.body;
+  const body = { ...req.body };
   body.phone = planter.phone;
   body.email = planter.email;
   await data.createPlanterRegistration(planter.id, req.body.device_identifier, body);
-  console.log("processed planter" + planter.id);
+  console.log(`processed planter ${planter.id}`);
   res.status(200).json({});
 });
 
 app.post('/tree', async (req, res) => {
     const user = await data.findUser(req.body.planter_identifier);
     if(user == null){
-      res.status(404).json({'error' : 'planter not found ' + req.body.planter_identifier})
+      res.status(404).json({'error' : `planter not found ${req.body.planter_identifier}`})
       return
     }
 
-    var duplicate = null;
+    let duplicate = null;
     if(req.body.uuid !== null 
       && req.body.uuid !== undefined
       && req.body.uuid !== ""){
@@ -76,27 +63,25 @@ app.post('/tree', async (req, res) => {
     }
     if(duplicate !== null){
       res.status(200).json({ duplicate });
-    } else {
-      if(config.useFieldDataService == "true") {
+    } else if(config.useFieldDataService === "true") {
         // translate to field-data capture payload
         const tree = req.body
         const capture = { 
           ...tree,
           planter_id: user.id
         };
-        var options = {
+        const options = {
           method: 'POST',
-          uri: config.fieldDataURL + "raw-captures",
+          uri: `${config.fieldDataURL}raw-captures`,
           body: capture,
           json: true // Automatically stringifies the body to JSON
         };
         const fieldCapture = await rp(options);
         res.status(201).json({ fieldCapture });
-      } else {
+    } else {
         const tree = await data.createTree( user.id, req.body.device_identifier, req.body);
-        console.log("created tree " + tree.uuid);
+        console.log(`created tree ${tree.uuid}`);
         res.status(201).json({ tree });
-      }
     }
 });
 
@@ -115,7 +100,7 @@ app.use((err, req, res, next) => {
 
 
 app.listen(port,()=>{
-    console.log('listening on port ' + port);
+    console.log(`listening on port ${port}`);
 });
 
 module.exports = app;
