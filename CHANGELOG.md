@@ -1,3 +1,11 @@
+## [1.0.2](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.0.1...v1.0.2) (2021-04-02)
+
+
+### Bug Fixes
+
+* default error handler fix ([cad506b](https://github.com/Greenstand/bulk-pack-transformer/commit/cad506b449e338e943dda7129f5456e9ffa2cdc7))
+* fix lint errors ([130661a](https://github.com/Greenstand/bulk-pack-transformer/commit/130661aa4d62c66805475cedb0a500ec3d18d2da))
+
 ## [1.0.1](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.0.0...v1.0.1) (2021-04-01)
 
 
