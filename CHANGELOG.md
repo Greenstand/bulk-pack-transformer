@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.0.2...v1.0.3) (2021-05-27)
+
+
+### Bug Fixes
+
+* remove imagePullPolicy always ([a9b4a82](https://github.com/Greenstand/bulk-pack-transformer/commit/a9b4a8279f7466e011f38ff464d49f86b8044ac3))
+
 ## [1.0.2](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.0.1...v1.0.2) (2021-04-02)
 
 
