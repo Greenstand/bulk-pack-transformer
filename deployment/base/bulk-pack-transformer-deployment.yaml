@@ -17,7 +17,6 @@ spec:
       containers:
       - name: bulk-pack-former
         image: greenstand/bulk-pack-transformer:latest
-        imagePullPolicy: Always
         env:
           - name: DATABASE_URL
             valueFrom:
