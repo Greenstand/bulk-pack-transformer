@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.0.3...v1.1.0) (2021-07-20)
+
+
+### Features
+
+* set up overlays ([248552d](https://github.com/Greenstand/bulk-pack-transformer/commit/248552d2248df6303c29c2fb9513e346b60c1f2c))
+
 ## [1.0.3](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.0.2...v1.0.3) (2021-05-27)
 
 
