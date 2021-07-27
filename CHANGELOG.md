@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.1.1...v1.1.2) (2021-07-27)
+
+
+### Bug Fixes
+
+* remove mapping from kustomization ([cb9cb9f](https://github.com/Greenstand/bulk-pack-transformer/commit/cb9cb9f0c5d71cc03f4a89a9c1adc886c298fe83))
+
 ## [1.1.1](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.1.0...v1.1.1) (2021-07-27)
 
 
