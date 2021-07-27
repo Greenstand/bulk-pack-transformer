@@ -4,6 +4,7 @@ require('express-async-errors');
 const bodyParser = require('body-parser');
 const rp = require('request-promise-native');
 const { Pool } = require('pg');
+const {version} = require('./package.json')
 const Data = require('./src/data');
 
 const config = require('./config/config');
@@ -91,7 +92,6 @@ app.put('/device', async (req, res) => {
 
 });
 
-const {version} = require('package.json')
 
 app.get('*',function (req, res) {
   res.status(200).send(version)
