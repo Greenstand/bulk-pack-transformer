@@ -93,7 +93,7 @@ app.put('/device', async (req, res) => {
 });
 
 
-app.get('*',function (req, res) {
+app.get('*', async (req, res) {
   res.status(200).send(version)
 });
 
