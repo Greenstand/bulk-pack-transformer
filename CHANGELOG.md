@@ -1,3 +1,16 @@
+## [1.1.1](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.1.0...v1.1.1) (2021-07-27)
+
+
+### Bug Fixes
+
+* add version string to default GET ([d20d7a2](https://github.com/Greenstand/bulk-pack-transformer/commit/d20d7a2340b9b6f1edb2cb867b5880e6be7357cf))
+* fix lints ([a427cce](https://github.com/Greenstand/bulk-pack-transformer/commit/a427cced72544ac994f6b38c26d75aa3429b4fdd))
+* fix lints ([8e5648a](https://github.com/Greenstand/bulk-pack-transformer/commit/8e5648a094bd792c24f48d89f76f4fc122a4a891))
+* fix path to package.json ([a75801f](https://github.com/Greenstand/bulk-pack-transformer/commit/a75801f789b0b5d7b72e02fbd95a71f1931574d7))
+* fix path to package.json ([190e82b](https://github.com/Greenstand/bulk-pack-transformer/commit/190e82b8253395965e90387a43a3849f52422eb0))
+* no mapping for bulk pack processor ([7a3543f](https://github.com/Greenstand/bulk-pack-transformer/commit/7a3543f4a56dd83197466d63c52d9c6c65ac3d8f))
+* use internal DNS, remove unused config vars ([99b4bd7](https://github.com/Greenstand/bulk-pack-transformer/commit/99b4bd7e0dd181a9afe60f4a839bee315ffaafcf))
+
 # [1.1.0](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.0.3...v1.1.0) (2021-07-20)
 
 
