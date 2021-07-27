@@ -1,8 +1,0 @@
-apiVersion: getambassador.io/v2
-kind: Mapping
-metadata:
-  name: bulk-pack-transformer
-spec:
-  prefix: /bp-transformer/
-  service: bulk-pack-transformer
-  rewrite: /
