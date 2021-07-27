@@ -91,6 +91,12 @@ app.put('/device', async (req, res) => {
 
 });
 
+const {version} = require('../package.json')
+
+app.get('*',function (req, res) {
+  res.status(200).send(version)
+});
+
 
 app.use((err, req, res, next) => {
   res.status(500);
