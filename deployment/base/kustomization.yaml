@@ -1,5 +1,4 @@
 resources:
 - bulk-pack-transformer-deployment.yaml
-- bulk-pack-transformer-mapping.yaml
 - bulk-pack-transformer-service.yaml
 - treetracker-db-sealed-secret.yaml
