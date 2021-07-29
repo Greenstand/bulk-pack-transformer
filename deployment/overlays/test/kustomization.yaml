@@ -1,4 +1,4 @@
 bases:
   - ../../base
 patchesStrategicMerge:
-  - treetracker-db-sealed-secret.yaml
+  - treetracker-database-connection-sealed-secret.yaml
