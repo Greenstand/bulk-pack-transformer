@@ -1,3 +1,10 @@
+## [1.1.5](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.1.4...v1.1.5) (2021-07-29)
+
+
+### Bug Fixes
+
+* correct internal endpoint for field data service ([e4e8297](https://github.com/Greenstand/bulk-pack-transformer/commit/e4e829739901b7046eb36ed0286d70475eaf7ce5))
+
 ## [1.1.4](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.1.3...v1.1.4) (2021-07-29)
 
 
