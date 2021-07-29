@@ -24,6 +24,6 @@ spec:
                 name: treetracker-database-connection
                 key: db
           - name: FIELD_DATA_URL
-            value: "http://bulk-pack-transformer-deployment.yaml/"
+            value: "http://treetracker-field-data.field-data-api/"
           - name: USE_FIELD_DATA
             value: "true"
