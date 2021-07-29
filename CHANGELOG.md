@@ -1,3 +1,10 @@
+## [1.1.4](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.1.3...v1.1.4) (2021-07-29)
+
+
+### Bug Fixes
+
+* add test env database connection ([1fdada2](https://github.com/Greenstand/bulk-pack-transformer/commit/1fdada2f26847c925f8f7306cbcd538f89844e72))
+
 ## [1.1.3](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.1.2...v1.1.3) (2021-07-29)
 
 
