@@ -1,3 +1,16 @@
+# [1.2.0](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.1.5...v1.2.0) (2021-10-14)
+
+
+### Bug Fixes
+
+* do not use field data service for now ([e9b52c4](https://github.com/Greenstand/bulk-pack-transformer/commit/e9b52c401dd4c39e405332ca6ccd32deeda34ca3))
+* move to node 14 ([5720354](https://github.com/Greenstand/bulk-pack-transformer/commit/572035491dc194fff0ead557e67823707d4862e9))
+
+
+### Features
+
+* move to node 14 ([26408c9](https://github.com/Greenstand/bulk-pack-transformer/commit/26408c9d69604ef6308f204de2220169cae7c273))
+
 ## [1.1.5](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.1.4...v1.1.5) (2021-07-29)
 
 
