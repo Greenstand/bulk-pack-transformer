@@ -4,6 +4,10 @@
   "private": true,
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": ">=14.0.0 <15",
+    "npm": ">=6.0.0"
+  },
   "scripts": {
     "test": "npm run test-unit; npm run test-int; npm run test-auth",
     "test-unit": "NODE_ENV=test mocha --require co-mocha 'lib/*.spec.js'",
