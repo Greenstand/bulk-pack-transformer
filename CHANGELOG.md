@@ -1,3 +1,51 @@
+## [1.1.5](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.1.4...v1.1.5) (2021-07-29)
+
+
+### Bug Fixes
+
+* correct internal endpoint for field data service ([e4e8297](https://github.com/Greenstand/bulk-pack-transformer/commit/e4e829739901b7046eb36ed0286d70475eaf7ce5))
+
+## [1.1.4](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.1.3...v1.1.4) (2021-07-29)
+
+
+### Bug Fixes
+
+* add test env database connection ([1fdada2](https://github.com/Greenstand/bulk-pack-transformer/commit/1fdada2f26847c925f8f7306cbcd538f89844e72))
+
+## [1.1.3](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.1.2...v1.1.3) (2021-07-29)
+
+
+### Bug Fixes
+
+* use default name scheme for database connection ([f131ba5](https://github.com/Greenstand/bulk-pack-transformer/commit/f131ba5b2288b350982579c70e632bdc9676c8a3))
+
+## [1.1.2](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.1.1...v1.1.2) (2021-07-27)
+
+
+### Bug Fixes
+
+* remove mapping from kustomization ([cb9cb9f](https://github.com/Greenstand/bulk-pack-transformer/commit/cb9cb9f0c5d71cc03f4a89a9c1adc886c298fe83))
+
+## [1.1.1](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.1.0...v1.1.1) (2021-07-27)
+
+
+### Bug Fixes
+
+* add version string to default GET ([d20d7a2](https://github.com/Greenstand/bulk-pack-transformer/commit/d20d7a2340b9b6f1edb2cb867b5880e6be7357cf))
+* fix lints ([a427cce](https://github.com/Greenstand/bulk-pack-transformer/commit/a427cced72544ac994f6b38c26d75aa3429b4fdd))
+* fix lints ([8e5648a](https://github.com/Greenstand/bulk-pack-transformer/commit/8e5648a094bd792c24f48d89f76f4fc122a4a891))
+* fix path to package.json ([a75801f](https://github.com/Greenstand/bulk-pack-transformer/commit/a75801f789b0b5d7b72e02fbd95a71f1931574d7))
+* fix path to package.json ([190e82b](https://github.com/Greenstand/bulk-pack-transformer/commit/190e82b8253395965e90387a43a3849f52422eb0))
+* no mapping for bulk pack processor ([7a3543f](https://github.com/Greenstand/bulk-pack-transformer/commit/7a3543f4a56dd83197466d63c52d9c6c65ac3d8f))
+* use internal DNS, remove unused config vars ([99b4bd7](https://github.com/Greenstand/bulk-pack-transformer/commit/99b4bd7e0dd181a9afe60f4a839bee315ffaafcf))
+
+# [1.1.0](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.0.3...v1.1.0) (2021-07-20)
+
+
+### Features
+
+* set up overlays ([248552d](https://github.com/Greenstand/bulk-pack-transformer/commit/248552d2248df6303c29c2fb9513e346b60c1f2c))
+
 ## [1.0.3](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.0.2...v1.0.3) (2021-05-27)
 
 

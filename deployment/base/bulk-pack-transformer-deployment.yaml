@@ -24,10 +24,6 @@ spec:
                 name: treetracker-database-connection
                 key: db
           - name: FIELD_DATA_URL
-            value: "https://dev-k8s.treetracker.org/field-data/"
+            value: "http://treetracker-field-data.field-data-api/"
           - name: USE_FIELD_DATA
             value: "true"
-          - name: NODE_LOG_LEVEL
-            value: trace
-          - name: REMOTE_LOG_URL
-            value: http://104.131.78.177:8000

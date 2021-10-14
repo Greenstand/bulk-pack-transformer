@@ -4,6 +4,7 @@ require('express-async-errors');
 const bodyParser = require('body-parser');
 const rp = require('request-promise-native');
 const { Pool } = require('pg');
+const {version} = require('./package.json')
 const Data = require('./src/data');
 
 const config = require('./config/config');
@@ -104,6 +105,12 @@ app.put('/device', async (req, res) => {
   const device = await data.upsertDevice(req.body);
   res.status(200).json({ device });
 });
+
+
+app.get('*', async (req, res) => {
+  res.status(200).send(version)
+});
+
 
 app.use((err, req, res, next) => {
   res.status(500);
