@@ -34,8 +34,8 @@ jobs:
       - name: Install doctl for kubernetes
         uses: digitalocean/action-doctl@v2
         with:
-          token: ${{ secrets.PROD_DIGITALOCEAN_TOKEN }}
+          token: ${{ secrets.DIGITALOCEAN_PRODUCTION_TOKEN }}
       - name: Save DigitalOcean kubeconfig
-        run: doctl kubernetes cluster kubeconfig save ${{ secrets.PROD_CLUSTER_NAME }}
+        run: doctl kubernetes cluster kubeconfig save ${{ secrets.PRODUCTION_CLUSTER_NAME }}
       - name: Update kubernetes resources
         run: kustomize build deployment/overlays/production | kubectl apply -n ${{ secrets.K8S_NAMESPACE }} --wait -f -
