@@ -1,3 +1,11 @@
+## [1.2.1](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.2.0...v1.2.1) (2021-10-15)
+
+
+### Bug Fixes
+
+* add production database connection ([f5633cf](https://github.com/Greenstand/bulk-pack-transformer/commit/f5633cf68adc05f20636bed0e2a645a3eae25e74))
+* update secret names ([b2ffb83](https://github.com/Greenstand/bulk-pack-transformer/commit/b2ffb8381726eff07ce18820e270b1d8d6abce72))
+
 # [1.2.0](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.1.5...v1.2.0) (2021-10-14)
 
 
