@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.2.1...v1.2.2) (2021-10-15)
+
+
+### Bug Fixes
+
+* rename directory ([27dfd67](https://github.com/Greenstand/bulk-pack-transformer/commit/27dfd67f8968b87d1ea6fbd276744205d452d823))
+
 ## [1.2.1](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.2.0...v1.2.1) (2021-10-15)
 
 
