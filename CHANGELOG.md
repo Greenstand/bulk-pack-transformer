@@ -1,3 +1,18 @@
+# [1.3.0](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.2.2...v1.3.0) (2021-10-20)
+
+
+### Bug Fixes
+
+* add prettier config file ([ea295ee](https://github.com/Greenstand/bulk-pack-transformer/commit/ea295eeefc68c231b691e591daeea38296208af0))
+* fix conflicts ([7832b11](https://github.com/Greenstand/bulk-pack-transformer/commit/7832b119ef65544e763dabead4dd170d1ef56c69))
+* reformat files with prettier ([fe8c20e](https://github.com/Greenstand/bulk-pack-transformer/commit/fe8c20e21fad616b9d50eb26e835de6502a111a6))
+
+
+### Features
+
+* move deployment to microservices-node-pool ([226903b](https://github.com/Greenstand/bulk-pack-transformer/commit/226903b478622ce8e54da9bf84af0231b8700e73))
+* populate geom field on planter_registrations ([02f71b9](https://github.com/Greenstand/bulk-pack-transformer/commit/02f71b940e1ad00080eaa9eef6f6e1d0f385d3e8))
+
 ## [1.2.2](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.2.1...v1.2.2) (2021-10-15)
 
 
