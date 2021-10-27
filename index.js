@@ -79,8 +79,18 @@ app.post('/tree', async (req, res) => {
     // translate to field-data capture payload
     const tree = req.body;
     const capture = {
-      ...tree,
+      uuid: tree.uuid,
+      image_url: tree.image_url,
+      lat: tree.lat,
+      lon: tree.lon,
+      gps_accuracy: tree.gps_accuracy,
+      note: tree.note,
+      device_identifier: tree.device_identifier,
       planter_id: user.id,
+      planter_identifier: tree.planter_identifier,
+      planter_photo_url: tree.planter_photo_url,
+      attributes: tree.attributes,
+      timestamp: tree.timestamp
     };
     const options = {
       method: 'POST',
