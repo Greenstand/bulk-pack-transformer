@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.3.0...v1.3.1) (2021-10-27)
+
+
+### Bug Fixes
+
+* turn on field data service flag for dev ([588b4ce](https://github.com/Greenstand/bulk-pack-transformer/commit/588b4ce88fa57045399785538a430e57d3037473))
+
 # [1.3.0](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.2.2...v1.3.0) (2021-10-20)
 
 
