@@ -1,0 +1,14 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bulk-pack-transformer
+  labels:
+    app: bulk-pack-transformer
+spec:
+  template:
+    spec:
+      containers:
+      - name: bulk-pack-former
+        env:
+          - name: USE_FIELD_DATA
+            value: "true"
