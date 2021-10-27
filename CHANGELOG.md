@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.3.1...v1.3.2) (2021-10-27)
+
+
+### Bug Fixes
+
+* only send the payload fields that are allow to the field data service ([de82db9](https://github.com/Greenstand/bulk-pack-transformer/commit/de82db987041c2e13b12ceef1c8d5110b3c66fc1))
+
 ## [1.3.1](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.3.0...v1.3.1) (2021-10-27)
 
 
