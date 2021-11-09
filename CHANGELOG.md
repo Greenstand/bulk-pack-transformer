@@ -1,3 +1,15 @@
+# [1.4.0](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.3.2...v1.4.0) (2021-11-09)
+
+
+### Bug Fixes
+
+* incorrect base image name ([04f94ac](https://github.com/Greenstand/bulk-pack-transformer/commit/04f94ac9597d5b22ababdf38d4ca93f8c89e4d4e))
+
+
+### Features
+
+* upgrade to node 16 ([2841b0a](https://github.com/Greenstand/bulk-pack-transformer/commit/2841b0ae4b5d028d3ee8fe575192e93766d22d9b))
+
 ## [1.3.2](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.3.1...v1.3.2) (2021-10-27)
 
 
