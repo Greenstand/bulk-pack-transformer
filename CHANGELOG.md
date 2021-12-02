@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.4.0...v1.4.1) (2021-12-02)
+
+
+### Bug Fixes
+
+* update treetracker database sealed secret ([0015a6a](https://github.com/Greenstand/bulk-pack-transformer/commit/0015a6a97a29b3880cc5e5ab762e2f0eb7b0145e))
+
 # [1.4.0](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.3.2...v1.4.0) (2021-11-09)
 
 
