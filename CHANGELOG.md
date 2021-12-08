@@ -1,3 +1,10 @@
+## [1.4.2](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.4.1...v1.4.2) (2021-12-08)
+
+
+### Bug Fixes
+
+* reseal the secret with correct ssl ([8aabc31](https://github.com/Greenstand/bulk-pack-transformer/commit/8aabc31d0e3240ea3da20e0f4fc4eab3cdfe34b1))
+
 ## [1.4.1](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.4.0...v1.4.1) (2021-12-02)
 
 
