@@ -208,7 +208,9 @@ class Data {
       text: `INSERT INTO devices (android_id) values ($1) ON CONFLICT (android_id) DO NOTHING`,
       values: [android_id],
     };
+    console.log('start device insert');
     await this.pool.query(insert);
+    console.log('completd device insert');
 
     const query = {
       text: `UPDATE devices
@@ -238,7 +240,9 @@ class Data {
         android_id,
       ],
     };
+    console.log('start device update');
     const returningDevice = await this.pool.query(query);
+    console.log('complete device update');
     return returningDevice.rows[0];
   }
 }

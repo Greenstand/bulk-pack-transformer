@@ -112,8 +112,11 @@ app.post('/tree', async (req, res) => {
 });
 
 app.put('/device', async (req, res) => {
+  console.log('/device');
   const device = await data.upsertDevice(req.body);
+  console.log('upserted');
   res.status(200).json({ device });
+  console.log('/device done');
 });
 
 
