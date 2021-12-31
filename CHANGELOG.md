@@ -1,3 +1,10 @@
+## [1.4.3](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.4.2...v1.4.3) (2021-12-31)
+
+
+### Bug Fixes
+
+* update package-lock ([d2af3ba](https://github.com/Greenstand/bulk-pack-transformer/commit/d2af3ba1f75731da11905168d0b336f1ed2798ce))
+
 ## [1.4.2](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.4.1...v1.4.2) (2021-12-08)
 
 
