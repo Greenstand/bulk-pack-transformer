@@ -1,3 +1,10 @@
+## [1.4.5](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.4.4...v1.4.5) (2021-12-31)
+
+
+### Bug Fixes
+
+* upgrade pg package ([9ad949f](https://github.com/Greenstand/bulk-pack-transformer/commit/9ad949f61503f11a4df62dd926af3ababb941eda))
+
 ## [1.4.4](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.4.3...v1.4.4) (2021-12-31)
 
 
