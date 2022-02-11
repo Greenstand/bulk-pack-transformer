@@ -1,3 +1,17 @@
+## [1.4.7](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.4.6...v1.4.7) (2022-01-26)
+
+
+### Bug Fixes
+
+* correct namespace for sealed secret ([a4c2658](https://github.com/Greenstand/bulk-pack-transformer/commit/a4c2658083fc8ab61c64ee6fe08749f64c80992c))
+
+## [1.4.6](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.4.5...v1.4.6) (2022-01-26)
+
+
+### Bug Fixes
+
+* correct ssl settings in db sealed secret ([696f77e](https://github.com/Greenstand/bulk-pack-transformer/commit/696f77ec13376c2d23f09eaac4af3626943f2426))
+
 ## [1.4.5](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.4.4...v1.4.5) (2021-12-31)
 
 
