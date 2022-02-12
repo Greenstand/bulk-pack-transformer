@@ -30,11 +30,13 @@ const processDevice = async (deviceObject, res, data) => {
 };
 
 const processCapture = async (captureObject, res, data) => {
-  const { version, planter_identifier, device_identifier } = captureObject;
+  const { version, planter_identifier, device_identifier, session_id } =
+    captureObject;
   delete captureObject.version;
 
+  let user;
   if (version === 1) {
-    const user = await data.findUser(planter_identifier);
+    user = await data.findUser(planter_identifier);
     if (user == null) {
       res.status(404).json({
         error: `planter not found ${planter_identifier}`,
@@ -55,7 +57,7 @@ const processCapture = async (captureObject, res, data) => {
     res.status(200).json({ duplicate });
   } else if (config.useFieldDataService === 'true') {
     // translate to field-data capture payload
-    const tree = captureObject;
+    const tree = { ...captureObject };
     const attributes = tree.attributes;
 
     const absStepCountIndex = attributes.findIndex(
@@ -79,24 +81,27 @@ const processCapture = async (captureObject, res, data) => {
     const capture = {
       id: tree.uuid,
       image_url: tree.image_url,
-      session_id: convertStringToUuid(device_identifier + planter_identifier),
+      session_id:
+        session_id ||
+        convertStringToUuid(device_identifier + planter_identifier),
       lat: tree.lat,
       lon: tree.lon,
       gps_accuracy: tree.gps_accuracy,
-      abs_step_count: abs_step_count.value,
-      delta_step_count: delta_step_count.value,
-      rotation_matrix: rotation_matrix.value,
+      abs_step_count: abs_step_count?.value,
+      delta_step_count: delta_step_count?.value,
+      rotation_matrix: rotation_matrix?.value,
       note: tree.note,
       extra_attributes: attributes,
       capture_taken_at: new Date(tree.timestamp * 1000).toISOString(),
     };
     const options = {
-      method: 'POST',
-      uri: `${config.fieldDataURL}raw-captures`,
       body: capture,
       json: true, // Automatically stringifies the body to JSON
     };
-    const fieldCapture = await rp(options);
+    const fieldCapture = await rp.post(
+      `${config.fieldDataURL}raw-captures`,
+      options,
+    );
     res.status(201).json({ fieldCapture });
   } else {
     const tree = await data.createTree(
