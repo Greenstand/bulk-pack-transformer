@@ -10,8 +10,8 @@
   },
   "scripts": {
     "test": "npm run test-unit && npm run test-int",
-    "test-unit": " mocha -r dotenv/config --env dotenv_config_path=.env.test --exit ./src/**/*.spec.js",
-    "test-int": " mocha -r dotenv/config --env dotenv_config_path=.env.test --exit --timeout 20000 './index.spec.js'",
+    "test-unit": "NODE_ENV=test mocha -r dotenv/config --env dotenv_config_path=.env.test --exit ./src/**/*.spec.js",
+    "test-int": "NODE_ENV=test mocha -r dotenv/config --env dotenv_config_path=.env.test --exit --timeout 20000 './index.spec.js'",
     "server": "node index.js",
     "lint": "npm run eslint",
     "lint:fix": "npm run eslint:fix && npm run prettier:fix",
