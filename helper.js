@@ -1,6 +1,6 @@
 const rp = require('request-promise-native');
-const config = require('./config/config');
 const convertStringToUuid = require('uuid-by-string');
+const config = require('./config/config');
 
 const processPlanter = async (planterObject, res, data) => {
   const planter = await data.findOrCreateUser(
@@ -58,7 +58,7 @@ const processCapture = async (captureObject, res, data) => {
   } else if (config.useFieldDataService === 'true') {
     // translate to field-data capture payload
     const tree = { ...captureObject };
-    const attributes = tree.attributes;
+    const {attributes} = tree;
 
     const absStepCountIndex = attributes.findIndex(
       (a) => a.key === 'abs_step_count',
