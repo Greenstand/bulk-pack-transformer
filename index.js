@@ -2,10 +2,10 @@ require('dotenv').config();
 const express = require('express');
 require('express-async-errors');
 const bodyParser = require('body-parser');
-const rp = require('request-promise-native');
 const { Pool } = require('pg');
-const {version} = require('./package.json')
+const { version } = require('./package.json');
 const Data = require('./src/data');
+const { processPlanter, processDevice, processCapture } = require('./helper');
 
 const config = require('./config/config');
 
@@ -37,93 +37,149 @@ app.use((err, req, res, next) => {
 
 app.set('view engine', 'html');
 
-app.post('/planter', async (req, res) => {
-  const planter = await data.findOrCreateUser(
-    req.body.planter_identifier,
-    req.body.first_name,
-    req.body.last_name,
-    req.body.organization,
-  );
-  const body = { ...req.body };
-  body.phone = planter.phone;
-  body.email = planter.email;
-  await data.createPlanterRegistration(
-    planter.id,
-    req.body.device_identifier,
-    body,
-  );
-  console.log(`processed planter ${planter.id}`);
-  res.status(200).json({});
+app.post('/planter', async (req, res, next) => {
+  try {
+    await processPlanter(req.body, res, data);
+  } catch (error) {
+    next(error);
+  }
 });
 
-app.post('/tree', async (req, res) => {
-  const user = await data.findUser(req.body.planter_identifier);
-  if (user == null) {
-    res
-      .status(404)
-      .json({ error: `planter not found ${req.body.planter_identifier}` });
-    return;
+app.post('/tree', async (req, res, next) => {
+  try {
+    await processCapture({ ...req.body, version: 1 }, res, data);
+  } catch (error) {
+    next(error);
   }
+});
 
-  let duplicate = null;
-  if (
-    req.body.uuid !== null &&
-    req.body.uuid !== undefined &&
-    req.body.uuid !== ''
-  ) {
-    duplicate = await data.checkForExistingTree(req.body.uuid);
+app.put('/device', async (req, res, next) => {
+  try {
+    await processDevice(req.body, res, data);
+  } catch (error) {
+    next(error);
   }
-  if (duplicate !== null) {
-    res.status(200).json({ duplicate });
-  } else if (config.useFieldDataService === 'true') {
-    // translate to field-data capture payload
-    const tree = req.body;
-    const capture = {
-      uuid: tree.uuid,
-      image_url: tree.image_url,
-      lat: tree.lat,
-      lon: tree.lon,
-      gps_accuracy: tree.gps_accuracy,
-      note: tree.note,
-      device_identifier: tree.device_identifier,
-      planter_id: user.id,
-      planter_identifier: tree.planter_identifier,
-      planter_photo_url: tree.planter_photo_url,
-      attributes: tree.attributes,
-      timestamp: tree.timestamp
-    };
-    const options = {
-      method: 'POST',
-      uri: `${config.fieldDataURL}raw-captures`,
-      body: capture,
-      json: true, // Automatically stringifies the body to JSON
-    };
-    const fieldCapture = await rp(options);
-    res.status(201).json({ fieldCapture });
-  } else {
-    const tree = await data.createTree(
-      user.id,
-      req.body.device_identifier,
-      req.body,
+});
+
+app.post('/v2/wallet_registrations', async (req, res, next) => {
+  try {
+    const {
+      wallet,
+      first_name,
+      last_name,
+      phone,
+      email,
+      lat,
+      lon,
+      user_photo_url,
+      registered_at,
+    } = req.body;
+
+    await processPlanter(
+      {
+        planter_identifier: wallet,
+        first_name,
+        last_name,
+        phone,
+        email,
+        organization: null,
+        device_identifier: null,
+        lat,
+        lon,
+      },
+      res,
+      data,
     );
-    console.log(`created tree ${tree.uuid}`);
-    res.status(201).json({ tree });
+  } catch (error) {
+    next(error);
   }
 });
 
-app.put('/device', async (req, res) => {
-  console.log('/device');
-  const device = await data.upsertDevice(req.body);
-  console.log('upserted');
-  res.status(200).json({ device });
-  console.log('/device done');
+app.post('/v2/device_configurations', async (req, res, next) => {
+  try {
+    const {
+      device_identifier,
+      brand,
+      model,
+      device,
+      serial,
+      hardware,
+      manufacturer,
+      app_build,
+      app_version,
+      os_version,
+      sdk_version,
+      logged_at,
+    } = req.body;
+
+    await processDevice(
+      {
+        device_identifier,
+        app_version,
+        app_build,
+        manufacturer,
+        brand,
+        model,
+        hardware,
+        device,
+        serial,
+        androidRelease: os_version,
+        androidSdkVersion: sdk_version,
+      },
+      res,
+      data,
+    );
+  } catch (error) {
+    next(error);
+  }
 });
 
+app.post('/v2/captures', async (req, res, next) => {
+  try {
+    const {
+      id,
+      session_id,
+      image_url,
+      lat,
+      lon,
+      gps_accuracy,
+      note,
+      abs_step_count,
+      delta_step_count,
+      rotation_matrix,
+      extra_attributes,
+      capture_taken_at,
+    } = req.body;
+
+    await processCapture(
+      {
+        uuid: id,
+        image_url,
+        lat,
+        lon,
+        gps_accuracy,
+        note,
+        session_id,
+        attributes: [
+          { key: 'abs_step_count', value: abs_step_count },
+          { key: 'delta_step_count', value: delta_step_count },
+          { key: 'rotation_matrix', value: rotation_matrix },
+          ...extra_attributes,
+        ],
+        timestamp: Math.floor(new Date(capture_taken_at).getTime() / 1000),
+        version: 2,
+      },
+      res,
+      data,
+    );
+  } catch (error) {
+    next(error);
+  }
+});
 
 app.get('*', async (req, res) => {
-  res.status(200).send(version)
+  res.status(200).send(version);
 });
-
 
 app.use((err, req, res, next) => {
   res.status(500);
