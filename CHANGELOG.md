@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.4.7...v1.5.0) (2022-02-15)
+
+
+### Features
+
+* bulk pack v2 updates ([46c93a3](https://github.com/Greenstand/bulk-pack-transformer/commit/46c93a3b391498e77206b57ab782da41420cc8eb))
+
 ## [1.4.7](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.4.6...v1.4.7) (2022-01-26)
 
 
