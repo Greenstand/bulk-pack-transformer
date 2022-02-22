@@ -91,19 +91,21 @@ const processCapture = async (captureObject, res, data) => {
       delta_step_count: delta_step_count?.value,
       rotation_matrix: rotation_matrix?.value,
       note: tree.note,
-      extra_attributes: attributes,
+      extra_attributes: tree.attributes,
       capture_taken_at: new Date(tree.timestamp * 1000).toISOString(),
     };
     const options = {
       body: capture,
       json: true, // Automatically stringifies the body to JSON
     };
+    console.log("forwarding tree data to field data service");
     const fieldCapture = await rp.post(
       `${config.fieldDataURL}raw-captures`,
       options,
     );
     res.status(201).json({ fieldCapture });
   } else {
+    console.log("insert tree data");
     const tree = await data.createTree(
       user.id,
       device_identifier,
