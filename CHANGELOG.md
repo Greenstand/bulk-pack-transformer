@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.5.0...v1.5.1) (2022-02-22)
+
+
+### Bug Fixes
+
+* remove invalid attributes mapping ([f357d08](https://github.com/Greenstand/bulk-pack-transformer/commit/f357d08024130c28e7bb7629daafe179c9832042))
+
 # [1.5.0](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.4.7...v1.5.0) (2022-02-15)
 
 
