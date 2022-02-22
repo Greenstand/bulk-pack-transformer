@@ -22,14 +22,15 @@ const processPlanter = async (planterObject, res, data) => {
 };
 
 const processDevice = async (deviceObject, res, data) => {
-  console.log('/device');
+ // console.log('/device');
   const device = await data.upsertDevice(deviceObject);
-  console.log('upserted');
+ // console.log('upserted');
   res.status(200).json({ device });
   console.log('/device done');
 };
 
 const processCapture = async (captureObject, res, data) => {
+  console.log('/capture');
   const { version, planter_identifier, device_identifier, session_id } =
     captureObject;
   delete captureObject.version;
@@ -44,7 +45,7 @@ const processCapture = async (captureObject, res, data) => {
       return;
     }
   }
-
+  console.log('check for existing');
   let duplicate = null;
   if (
     captureObject.uuid !== null &&
@@ -54,8 +55,10 @@ const processCapture = async (captureObject, res, data) => {
     duplicate = await data.checkForExistingTree(captureObject.uuid);
   }
   if (duplicate !== null) {
+    console.log('existing');
     res.status(200).json({ duplicate });
   } else if (config.useFieldDataService === 'true') {
+    console.log('prepare to use field data service');
     // translate to field-data capture payload
     const tree = { ...captureObject };
     const {attributes} = tree;
