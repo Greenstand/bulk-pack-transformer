@@ -1,3 +1,11 @@
+## [1.5.2](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.5.1...v1.5.2) (2022-02-22)
+
+
+### Bug Fixes
+
+* debugging logs ([81b3b15](https://github.com/Greenstand/bulk-pack-transformer/commit/81b3b15d7f97ef42ca7a0f81d0cbf97aded78bde))
+* Revert ([529a0da](https://github.com/Greenstand/bulk-pack-transformer/commit/529a0dad2e5e073c0d611ae6eb65f2f26d231ad3))
+
 ## [1.5.1](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.5.0...v1.5.1) (2022-02-22)
 
 
