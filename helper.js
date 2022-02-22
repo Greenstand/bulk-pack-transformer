@@ -98,12 +98,15 @@ const processCapture = async (captureObject, res, data) => {
       body: capture,
       json: true, // Automatically stringifies the body to JSON
     };
+    console.log("contacting field data service");
+    console.log(capture);
     const fieldCapture = await rp.post(
       `${config.fieldDataURL}raw-captures`,
       options,
     );
     res.status(201).json({ fieldCapture });
   } else {
+    console.log("Storing tree");
     const tree = await data.createTree(
       user.id,
       device_identifier,
