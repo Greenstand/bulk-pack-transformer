@@ -148,7 +148,7 @@ app.post('/v2/captures', async (req, res, next) => {
       delta_step_count,
       rotation_matrix,
       extra_attributes,
-      capture_taken_at,
+      captured_at,
     } = req.body;
 
     await processCapture(
@@ -166,7 +166,7 @@ app.post('/v2/captures', async (req, res, next) => {
           { key: 'rotation_matrix', value: rotation_matrix },
           ...extra_attributes,
         ],
-        timestamp: Math.floor(new Date(capture_taken_at).getTime() / 1000),
+        timestamp: Math.floor(new Date(captured_at).getTime() / 1000),
         version: 2,
       },
       res,

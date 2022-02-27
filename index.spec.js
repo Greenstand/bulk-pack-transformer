@@ -244,7 +244,7 @@ describe('API', () => {
         delta_step_count: 'delta_step_count',
         rotation_matrix: 'rotation_matrix',
         extra_attributes: 'extra_attributes',
-        capture_taken_at: '2022-02-12T22:45:36.005Z',
+        captured_at: '2022-02-12T22:45:36.005Z',
       };
 
       it('should error out -- planter identifier not found', async () => {

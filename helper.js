@@ -95,7 +95,7 @@ const processCapture = async (captureObject, res, data) => {
       rotation_matrix: rotation_matrix?.value,
       note: tree.note,
       extra_attributes: attributes,
-      capture_taken_at: new Date(tree.timestamp * 1000).toISOString(),
+      captured_at: new Date(tree.timestamp * 1000).toISOString(),
     };
     const options = {
       body: capture,
