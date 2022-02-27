@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.5.3...v1.6.0) (2022-02-27)
+
+
+### Features
+
+* rename capture_taken_at to captured_at for v2 ([97b3b30](https://github.com/Greenstand/bulk-pack-transformer/commit/97b3b3037b14437700ff95e5782505ac94456df6))
+
 ## [1.5.3](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.5.2...v1.5.3) (2022-02-22)
 
 
