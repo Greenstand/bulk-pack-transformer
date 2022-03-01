@@ -1,3 +1,10 @@
+## [1.6.2](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.6.1...v1.6.2) (2022-03-01)
+
+
+### Bug Fixes
+
+* add support for ios os properties ([00837e7](https://github.com/Greenstand/bulk-pack-transformer/commit/00837e7f6e42ed4a3afd05ea01f553cf55f8e5e5))
+
 ## [1.6.1](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.6.0...v1.6.1) (2022-02-28)
 
 
