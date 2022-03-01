@@ -133,8 +133,7 @@ class Data {
     const geom = `SRID=4326;POINT (${body.lon} ${body.lat})`;
 
     var query = {
-      text:
-        'INSERT INTO planter_registrations ( planter_id, device_identifier, first_name, last_name, organization, phone, email, lat, lon, geom ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *',
+      text: 'INSERT INTO planter_registrations ( planter_id, device_identifier, first_name, last_name, organization, phone, email, lat, lon, geom ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *',
       values: [
         planterId,
         deviceIdentifier,
@@ -172,14 +171,12 @@ class Data {
       var query2 = null;
       if (reg.test(identifier)) {
         query2 = {
-          text:
-            'INSERT INTO planter (first_name, last_name, organization, phone) VALUES ($1, $2, $3, $4 ) RETURNING *',
+          text: 'INSERT INTO planter (first_name, last_name, organization, phone) VALUES ($1, $2, $3, $4 ) RETURNING *',
           values: [first_name, last_name, organization, identifier],
         };
       } else {
         query2 = {
-          text:
-            'INSERT INTO planter (first_name, last_name, organization, email) VALUES ($1, $2, $3, $4 ) RETURNING *',
+          text: 'INSERT INTO planter (first_name, last_name, organization, email) VALUES ($1, $2, $3, $4 ) RETURNING *',
           values: [first_name, last_name, organization, identifier],
         };
       }
@@ -200,8 +197,8 @@ class Data {
     let hardware = body['hardware'];
     let device = body['device'];
     let serial = body['serial'];
-    let android_release = body['androidRelease'];
-    let android_sdk = body['androidSdkVersion'];
+    let android_release = body['androidRelease'] || body['ios_release'];
+    let android_sdk = body['androidSdkVersion'] || body['ios_sdk_version'];
 
     // insert only if one does not exist
     const insert = {
