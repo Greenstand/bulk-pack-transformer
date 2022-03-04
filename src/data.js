@@ -199,7 +199,7 @@ class Data {
     let serial = body['serial'];
     let android_release = body['androidRelease'] || body['ios_release'];
     let android_sdk =
-      body['androidSdkVersion'] || Math.round(body['ios_sdk_version']) || null;
+      body['androidSdkVersion'] || Math.floor(body['ios_sdk_version']) || null;
 
     // insert only if one does not exist
     const insert = {
