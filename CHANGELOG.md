@@ -1,3 +1,11 @@
+## [1.6.3](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.6.2...v1.6.3) (2022-03-04)
+
+
+### Bug Fixes
+
+* change Math.round to Math.floor ([e9affcc](https://github.com/Greenstand/bulk-pack-transformer/commit/e9affccfa70c6e263d7eeeadb04781402d2fb272))
+* round ios_sdk_version value to int ([c8352d1](https://github.com/Greenstand/bulk-pack-transformer/commit/c8352d170cd24fa2e2c02cc60d6123b14474d586))
+
 ## [1.6.2](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.6.1...v1.6.2) (2022-03-01)
 
 
