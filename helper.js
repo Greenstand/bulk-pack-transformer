@@ -22,9 +22,9 @@ const processPlanter = async (planterObject, res, data) => {
 };
 
 const processDevice = async (deviceObject, res, data) => {
- // console.log('/device');
+  // console.log('/device');
   const device = await data.upsertDevice(deviceObject);
- // console.log('upserted');
+  // console.log('upserted');
   res.status(200).json({ device });
   console.log('/device done');
 };
@@ -61,25 +61,37 @@ const processCapture = async (captureObject, res, data) => {
     console.log('prepare to use field data service');
     // translate to field-data capture payload
     const tree = { ...captureObject };
-    const {attributes} = tree;
+    const { attributes } = tree;
 
     const absStepCountIndex = attributes.findIndex(
       (a) => a.key === 'abs_step_count',
     );
-    const absStepCountArray = attributes.splice(absStepCountIndex, 1);
-    const [abs_step_count] = absStepCountArray;
+    let abs_step_count;
+
+    if (absStepCountIndex !== -1) {
+      const absStepCountArray = attributes.splice(absStepCountIndex, 1);
+      [abs_step_count] = absStepCountArray;
+    }
 
     const deltaStepCountIndex = attributes.findIndex(
       (a) => a.key === 'delta_step_count',
     );
-    const deltaStepCountArray = attributes.splice(deltaStepCountIndex, 1);
-    const [delta_step_count] = deltaStepCountArray;
+    let delta_step_count;
+
+    if (deltaStepCountIndex !== -1) {
+      const deltaStepCountArray = attributes.splice(deltaStepCountIndex, 1);
+      [delta_step_count] = deltaStepCountArray;
+    }
 
     const rotationMatrixIndex = attributes.findIndex(
       (a) => a.key === 'rotation_matrix',
     );
-    const rotationMatrixArray = attributes.splice(rotationMatrixIndex, 1);
-    const [rotation_matrix] = rotationMatrixArray;
+    let rotation_matrix;
+
+    if (rotationMatrixIndex !== -1) {
+      const rotationMatrixArray = attributes.splice(rotationMatrixIndex, 1);
+      [rotation_matrix] = rotationMatrixArray;
+    }
 
     const capture = {
       id: tree.uuid,
@@ -90,9 +102,9 @@ const processCapture = async (captureObject, res, data) => {
       lat: tree.lat,
       lon: tree.lon,
       gps_accuracy: tree.gps_accuracy,
-      abs_step_count: abs_step_count?.value,
-      delta_step_count: delta_step_count?.value,
-      rotation_matrix: rotation_matrix?.value,
+      abs_step_count: abs_step_count?.value ?? 0,
+      delta_step_count: delta_step_count?.value ?? 0,
+      rotation_matrix: rotation_matrix?.value?.split(',') ?? [],
       note: tree.note,
       extra_attributes: attributes,
       captured_at: new Date(tree.timestamp * 1000).toISOString(),
@@ -101,7 +113,7 @@ const processCapture = async (captureObject, res, data) => {
       body: capture,
       json: true, // Automatically stringifies the body to JSON
     };
-    console.log("contacting field data service");
+    console.log('contacting field data service');
     console.log(capture);
     const fieldCapture = await rp.post(
       `${config.fieldDataURL}raw-captures`,
@@ -109,7 +121,7 @@ const processCapture = async (captureObject, res, data) => {
     );
     res.status(201).json({ fieldCapture });
   } else {
-    console.log("Storing tree");
+    console.log('Storing tree');
     const tree = await data.createTree(
       user.id,
       device_identifier,
