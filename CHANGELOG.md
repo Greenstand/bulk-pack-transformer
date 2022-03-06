@@ -1,3 +1,10 @@
+## [1.6.4](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.6.3...v1.6.4) (2022-03-06)
+
+
+### Bug Fixes
+
+* rotation_matrix ([1bbd087](https://github.com/Greenstand/bulk-pack-transformer/commit/1bbd08776eb98ca44c6bf52b7fca92ce633191f0))
+
 ## [1.6.3](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.6.2...v1.6.3) (2022-03-04)
 
 
