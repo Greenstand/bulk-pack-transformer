@@ -93,8 +93,6 @@ const processCapture = async (captureObject, res, data) => {
       [rotation_matrix] = rotationMatrixArray;
     }
 
-    console.log('rotation', rotation_matrix);
-
     const capture = {
       id: tree.uuid,
       image_url: tree.image_url,
