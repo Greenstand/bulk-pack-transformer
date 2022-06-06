@@ -93,6 +93,8 @@ const processCapture = async (captureObject, res, data) => {
       [rotation_matrix] = rotationMatrixArray;
     }
 
+    console.log('rotation', rotation_matrix);
+
     const capture = {
       id: tree.uuid,
       image_url: tree.image_url,
@@ -104,7 +106,7 @@ const processCapture = async (captureObject, res, data) => {
       gps_accuracy: tree.gps_accuracy,
       abs_step_count: abs_step_count?.value ?? 0,
       delta_step_count: delta_step_count?.value ?? 0,
-      rotation_matrix: rotation_matrix?.value?.split(',') ?? [],
+      rotation_matrix: rotation_matrix?.value ?? [],
       note: tree.note,
       extra_attributes: attributes,
       captured_at: new Date(tree.timestamp * 1000).toISOString(),

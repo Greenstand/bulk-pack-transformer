@@ -147,7 +147,7 @@ app.post('/v2/captures', async (req, res, next) => {
       abs_step_count,
       delta_step_count,
       rotation_matrix,
- //     extra_attributes,
+      // extra_attributes,
       captured_at,
     } = req.body;
 
@@ -164,7 +164,7 @@ app.post('/v2/captures', async (req, res, next) => {
           { key: 'abs_step_count', value: abs_step_count },
           { key: 'delta_step_count', value: delta_step_count },
           { key: 'rotation_matrix', value: rotation_matrix },
-   //       ...extra_attributes,
+          // ...extra_attributes,
         ],
         timestamp: Math.floor(new Date(captured_at).getTime() / 1000),
         version: 2,
