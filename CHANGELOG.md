@@ -1,3 +1,10 @@
+## [1.6.7](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.6.6...v1.6.7) (2022-06-07)
+
+
+### Bug Fixes
+
+* rebuild package-lock.json ([81d6c8f](https://github.com/Greenstand/bulk-pack-transformer/commit/81d6c8fb855a326f2bfb4ec37ba27891dd68cc86))
+
 ## [1.6.6](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.6.5...v1.6.6) (2022-06-07)
 
 
