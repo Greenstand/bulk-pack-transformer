@@ -1,9 +1,9 @@
-bases:
-  - ../../base
 patchesStrategicMerge:
-  - treetracker-database-connection-sealed-secret.yaml
+- treetracker-database-connection-sealed-secret.yaml
 images:
-  - name: greenstand/bulk-pack-transformer
-    newTag: 1.6.4
+- name: greenstand/bulk-pack-transformer
+  newTag: 1.6.9
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+resources:
+- ../../base
