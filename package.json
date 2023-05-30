@@ -1,6 +1,6 @@
 {
   "name": "treetracker",
-  "version": "1.6.8",
+  "version": "1.6.9",
   "private": true,
   "description": "",
   "main": "index.js",

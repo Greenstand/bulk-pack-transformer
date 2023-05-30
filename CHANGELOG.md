@@ -1,3 +1,11 @@
+## [1.6.9](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.6.8...v1.6.9) (2023-05-30)
+
+
+### Bug Fixes
+
+* semantic release ([4e4f369](https://github.com/Greenstand/bulk-pack-transformer/commit/4e4f369ecbea7bca770f948c3e63add65c4991c8))
+* uuid duplicate check ([14555a7](https://github.com/Greenstand/bulk-pack-transformer/commit/14555a7c5584ab46014a9cbafad8d009478d93d5))
+
 ## [1.6.8](https://github.com/Greenstand/bulk-pack-transformer/compare/v1.6.7...v1.6.8) (2022-06-07)
 
 
