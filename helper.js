@@ -52,7 +52,7 @@ const processCapture = async (captureObject, res, data) => {
     captureObject.uuid !== undefined &&
     captureObject.uuid !== ''
   ) {
-    duplicate = await data.checkForExistingTree(captureObject.uuid);
+    duplicate = await data.checkForExistingTree(captureObject.uuid.toLowerCase());
   }
   if (duplicate !== null) {
     console.log('existing');
